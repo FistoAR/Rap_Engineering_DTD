@@ -20,14 +20,17 @@ const socialIcons = document.querySelector('.social-icons');
 
 // Slides
 const slides = [
+  { id: 'secondSlidenew', flag: 'hasShownSecondSlidenew', done: 'secondSlidenewAnimationCompleted', line: '#secondSlidenew .vertical-line' },
   { id: 'secondSlide', flag: 'hasShownSecondSlide', done: 'secondSlideAnimationCompleted', line: '#secondSlide .vertical-line' },
   { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted', line: '#detailsSlide .details-vertical-line' },
   { id: 'fourthSlide', flag: 'hasShownFourthSlide', done: 'fourthSlideAnimationCompleted', line: '#fourthSlide .fourth-vertical-line' },
   { id: 'fifthSlide', flag: 'hasShownFifthSlide', done: 'fifthSlideAnimationCompleted', line: '#fifthSlide .fifth-vertical-line' },
   { id: 'sixSlide', flag: 'hasShownSixSlide', done: 'sixSlideAnimationCompleted', line: '#sixSlide .six-vertical-line' },
+  { id: 'detailsSlidenew', flag: 'hasShownDetailsSlidenew', done: 'detailsSlidenewAnimationCompleted', line: '#detailsSlidenew .details-vertical-line' },
   { id: 'sevenSlide', flag: 'hasShownSevenSlide', done: 'sevenSlideAnimationCompleted', line: '#sevenSlide .seven-vertical-line' },
   { id: 'eightSlide', flag: 'hasShownEightSlide', done: 'eightSlideAnimationCompleted', line: '#eightSlide .eight-vertical-line' },
   { id: 'nineSlide', flag: 'hasShownNineSlide', done: 'nineSlideAnimationCompleted', line: '#nineSlide .nine-vertical-line' },
+  { id: 'detailsSlidenew9', flag: 'hasShownDetailsSlidenew9', done: 'detailsSlidenew9AnimationCompleted', line: '#detailsSlidenew9 .details-vertical-line' },
   { id: 'tenSlide', flag: 'hasShownTenSlide', done: 'tenSlideAnimationCompleted', line: '#tenSlide .ten-vertical-line' },
   { id: 'elevenSlide', flag: 'hasShownElevenSlide', done: 'elevenSlideAnimationCompleted', line: '#elevenSlide .eleven-vertical-line' },
   { id: 'tweleveSlide', flag: 'hasShownTweleveSlide', done: 'tweleveSlideAnimationCompleted', line: '#tweleveSlide .tweleve-vertical-line' },
@@ -109,7 +112,7 @@ function handleScroll(scrollY) {
 
   const baseScroll = 280;
 
-  if (scrollY > 350 && !animationFlags.hasAnimatedV) {
+  if (scrollY > 150 && !animationFlags.hasAnimatedV) {
     animationFlags.hasAnimatedV = true;
     circle?.classList.add('zoom-out');
     bullseyeMask?.classList.add('zoom-out');
@@ -131,7 +134,7 @@ function handleScroll(scrollY) {
   }
 
   slides.forEach((s, index) => {
-    const offset = baseScroll + index * 400;
+    const offset = baseScroll + index * 300;
     const prevDone = index === 0 ? 'textAnimationCompleted' : slides[index - 1].done;
 
     if (scrollY > offset && !animationFlags[s.flag] && animationFlags[prevDone]) {
@@ -139,7 +142,7 @@ function handleScroll(scrollY) {
       s.slide?.classList.add('visible');
       s.lineEl?.classList.add('active');
 
-      if (s.id === 'secondSlide') {
+      if (s.id === 'secondSlidenew') {
         pageIndicator?.classList.add('visible');
       }
     } else if (scrollY <= offset && animationFlags[s.flag]) {
@@ -147,7 +150,7 @@ function handleScroll(scrollY) {
       animationFlags[s.done] = false;
       s.slide?.classList.add('slide-out');
       s.lineEl?.classList.remove('active');
-      if (s.id === 'secondSlide') {
+      if (s.id === 'secondSlidenew') {
         pageIndicator?.classList.remove('visible');
       }
 
@@ -156,6 +159,7 @@ function handleScroll(scrollY) {
   });
 
   if (scrollY <= 100 && animationFlags.hasAnimatedV) {
+    console.log("yes")
     animationFlags.hasAnimatedV = false;
     circle?.classList.remove('zoom-out');
     bullseyeMask?.classList.remove('zoom-out');
@@ -204,7 +208,7 @@ function updateCurrentPage() {
   playAudioForPage(visibleIndex + 2)
   const pageNumber = visibleIndex >= 0 ? visibleIndex + 2 : 1;
 
-  if (parseInt(pageInput?.value) !== pageNumber) {
+  if (parseInt(pageInput?.value) !== pageNumber && pageNumber>1) {
     pageInput.value = pageNumber;
   }
 
@@ -243,7 +247,7 @@ function scrollToPage(page) {
   playAudioForPage(page)
   isProgrammaticScroll = true;
 
-  const offset = page === 1 ? 0 : 280 + (page - 2) * 500;
+  const offset = page === 1 ? 0 : 280 + (page - 2) * 300;
   showOnlySlide(page - 1);
   window.scrollTo({ top: offset + 10, behavior: 'smooth' });
 
@@ -256,20 +260,23 @@ function scrollToPage(page) {
 
 const pageMapping = {
   '.text': 1,
-  '.second-slide': 2,
-  '.details-slide': 3,
-  '.fourth-slide': 4,
-  '.fifth-slide': 5,
-  '.six-slide': 6,
-  '.seven-slide': 7,
-  '.eight-slide': 8,
-  '.nine-slide': 9,
-  '.ten-slide': 10,
-  '.eleven-slide': 11,
-  '.tweleve-slide': 12,
-  '.thirteen-slide': 13,
-  '.fourteen-slide': 14,
-  '.fifteen-slide': 15
+  '.second-slide-new': 2,
+  '.second-slide': 3,
+  '.details-slide': 4,
+  '.fourth-slide': 5,
+  '.fifth-slide': 6,
+  '.six-slide': 7,
+  '.details-slide-new': 8,
+  '.seven-slide': 9,
+  '.eight-slide': 10,
+  '.nine-slide': 11,
+  '.details-slide-new9': 12,
+  '.ten-slide': 13,
+  '.eleven-slide': 14,
+  '.tweleve-slide': 15,
+  '.thirteen-slide': 16,
+  '.fourteen-slide': 17,
+  '.fifteen-slide': 18
 };
 
 navSelect?.addEventListener('change', () => {
@@ -345,7 +352,7 @@ function handleScrollAnimation(element, showClass, hideClass) {
 
 window.addEventListener("scroll", function () {
   var sections = [
-    { selector: ".second-slide", in: "slide-in", out: "slide-out" },
+    { selector: ".second-slide-new", in: "slide-in", out: "slide-out" },
     { selector: ".details-slide", in: "fade-in", out: "fade-out" },
     { selector: ".fourth-slide", in: "zoom-in", out: "zoom-out" }
   ];
@@ -385,10 +392,10 @@ document.addEventListener('DOMContentLoaded', function () {
       image: './images/DTDnew.png',
       title: 'Drum Type Diverter (DTD)',
       description: [
-        'It is used with DT type RV',
-        'It is a transition piece connecting the RV outlet to the conveying line',
-        'It has a flange connection (available in DIN / ANSI / JIS) on the top and pipe connection (available in different sizes) on the bottom',
-        'Available in mild steel & stainless steel construction'
+        'DTD are designed to divert or converge dry bulk materials with minimal degradation in pneumatic systems',
+        'They support both pressure and vacuum conveying applications',
+        'Sealing options include static silicone (up to 2 bar) and dynamic silicone (up to 6 bar) based on pressure needs',
+        'Available in sizes ranging from 50 mm to 200 mm for versatile system integration'
       ]
     },
     'segment-btm': {
@@ -403,20 +410,20 @@ document.addEventListener('DOMContentLoaded', function () {
       image: './images/SDTD.png',
       title: 'Single Drum Type Diverter (SDTD)',
       description: [
-        'It is used with DT type RV',
-        'It is a transition piece connecting the RV outlet to the conveying line',
-        'It has a flange connection (available in DIN / ANSI / JIS) on the top and pipe connection (available in different sizes) on the bottom',
-        'Available in mild steel & stainless steel construction'
+        'SDTD diverts dry bulk materials in pneumatic conveying systems',
+        'Works with both pressure and vacuum conveying',
+        'Seal options: Static (1.5 bar) and Dynamic (6 bar)',
+        'Available in sizes from 150 mm to 300 mm'
       ]
     },
     'segment-sdtd': {
       image: './images/BDV.png',
       title: 'BDV Diverter',
       description: [
-        'It is used with DT type RV',
-        'It is a transition piece connecting the RV outlet to the conveying line',
-        'It has a flange connection (available in DIN / ANSI / JIS) on the top and pipe connection (available in different sizes) on the bottom',
-        'Available in mild steel & stainless steel construction'
+        'BDVs divert or converge dry bulk materials in pneumatic conveying systems',
+        'Suitable for pressure (up to 6 bar g) and vacuum (-0.5 bar g) applications',
+        'Seal options: Polyurethane, Viton, and Silicone',
+        'Available in sizes from 65 mm to 250 mm'
       ]
     }
   };
@@ -433,7 +440,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Set selected segment to black
     for (let key in originalTransforms) {
       if (segment.classList.contains(key)) {
         segment.style.backgroundImage = 'none';
@@ -442,7 +448,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Update valve content
     for (let key in valveMap) {
       if (segment.classList.contains(key)) {
         valveImage.src = valveMap[key].image;
@@ -487,6 +492,114 @@ document.addEventListener('DOMContentLoaded', function () {
     defaultSegment.style.backgroundColor = 'black';
     defaultSegment.style.transform = 'rotate(270deg) scale(1.1)';
   }
+
+const features = [
+  "Housing, Drum & End Covers in Aluminum using High Quality Gravity Die Casting Process",
+  "Product Contact Surface in SS 316L",
+  "Dual Tunnel",
+  "Cylinder Operated",
+  "Can be Installed in any Orientation",
+  "No External Moving Parts",
+  "Easy to Maintain",
+  "ATEX Approved"
+];
+
+const options = [
+  "MOC in complete SS 304 construction",
+  "High Temperature Modification",
+  "ATEX / IECEX Rated Electrical Components ",
+  "Hard Chrome Coating on Product Contact Surface",
+  "Tungsten Carbide Coating on Product Contact Surface",
+  "Hardox Liner"
+];
+
+const feature = document.getElementById('unorderlist-fea');
+const option = document.getElementById('unorderlist-opt');
+
+features.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+  feature.appendChild(li);
+});
+
+
+options.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+  option.appendChild(li);
+});
+
+
+const features6 = [
+  "Housing, Drum & End Covers in Aluminum using High Quality Gravity Die Casting Process",
+  "Product Contact Surface in Stainless Steel 316L",
+  "SDTD-C in Stainless Steel 304 construction",
+  "Single Tunnel",
+  "Actuator Operated",
+  "Can be Installed in any Orientation",
+  "No External Moving Parts",
+  "Easy to Maintain",
+  "ATEX Approved"
+];
+
+const options6 = [
+  "High Temperature Modification",
+  "ATEX / IECEX Rated Electrical Components",
+  "SDTD - Hard Chrome Coating on Product Contact Surface",
+  "SDTD - Tungsten Carbide Coating on Product Contact Surface",
+  "SDTD - Hardox Liner"
+];
+
+const feature6 = document.getElementById('six-unorderlist-fea');
+const option6 = document.getElementById('six-unorderlist-opt');
+
+features6.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+  feature6.appendChild(li);
+});
+
+
+options6.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+  option6.appendChild(li);
+});
+
+const features9 = [
+  "Construction in Spheroidal Cast Iron",
+  "Single Tunnel",
+  "Actuator Operated",
+  "No External Moving Parts",
+  "Easy to Maintain",
+  "ATEX Approved",
+  "Can divert the product during its flow",
+  "Replacement of seal is possible with the valve in position"
+];
+
+const options9 = [
+  "High Temperature Modification",
+  "ATEX / IECEX Rated Electrical Components"
+];
+
+const feature9 = document.getElementById('nine-unorderlist-fea');
+const option9 = document.getElementById('nine-unorderlist-opt');
+
+features9.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+  feature9.appendChild(li);
+});
+
+
+options9.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+  option9.appendChild(li);
+});
+
+
+
 });
 
 
