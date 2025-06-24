@@ -210,26 +210,38 @@ body.gray-bg {
   border: 2px solid #ffffff;
   border-radius: 9999px;
   background-color: transparent;
-  color: #f35277;
+  color: red;
   width: 20%;
-
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath  d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1.5em center;
   background-size: 10px 6px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1vw;
 }
 
 .dropdown option {
   color: #000000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1vw;
 }
+
+.dropdown option:hover {
+  color: red;
+}
+
 
 .social-icons {
   border: 2px solid #ffffff;
   border-radius: 9999px;
+  padding: 0.20vw 1.3vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.5vw;
 }
 
 .social-icons i {
