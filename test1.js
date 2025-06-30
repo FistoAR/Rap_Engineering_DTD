@@ -3,7 +3,6 @@ if ("scrollRestoration" in history) {
 }
 window.scrollTo(0, 0);
 
-// Element references
 const circle = document.getElementById('circle');
 const bgVideo = document.getElementById('bgVideo');
 const bullseyeMask = document.getElementById('bullseyeMask');
@@ -15,38 +14,43 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 11, 14, 17, 18, 19, 22]);
+const set = new Set([2, 3, 4, 5, 13, 17, 21, 23, 25, 29]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 
-// Slides
 const slides = [
   { id: 'secondSlidenew', flag: 'hasShownSecondSlidenew', done: 'secondSlidenewAnimationCompleted', line: '#secondSlidenew .vertical-line' },
   { id: 'secondSlide', flag: 'hasShownSecondSlide', done: 'secondSlideAnimationCompleted', line: '#secondSlide .vertical-line' },
   { id: 'fourthSlide', flag: 'hasShownFourthSlide', done: 'fourthSlideAnimationCompleted', line: '#fourthSlide .fourth-vertical-line' },
+  { id: 'dtdHome', flag: 'hasShownDtdHome', done: 'dtdHomeAnimationCompleted' },
+  { id: 'fifthnewSlide', flag: 'hasShownFifthnewSlide', done: 'fifthnewSlideAnimationCompleted', line: '#fifthnewSlide .vertical-line' },
   { id: 'fifthSlide', flag: 'hasShownFifthSlide', done: 'fifthSlideAnimationCompleted', line: '#fifthSlide .fifth-vertical-line' },
   { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted', line: '#detailsSlide .details-vertical-line' },
   { id: 'tenSlide', flag: 'hasShownTenSlide', done: 'tenSlideAnimationCompleted', line: '#tenSlide .ten-vertical-line' },
   { id: 'elevenSlide', flag: 'hasShownElevenSlide', done: 'elevenSlideAnimationCompleted', line: '#elevenSlide .eleven-vertical-line' },
   { id: 'tweleveSlide', flag: 'hasShownTweleveSlide', done: 'tweleveSlideAnimationCompleted', line: '#tweleveSlide .tweleve-vertical-line' },
   { id: 'thirteenSlide', flag: 'hasShownThirteenSlide', done: 'thirteenSlideAnimationCompleted', line: '#thirteenSlide .thirteen-vertical-line' },
+  { id: 'bvdHome', flag: 'hasShownBvdHome', done: 'bvdHomeAnimationCompleted' },
   { id: 'nineSlide', flag: 'hasShownNineSlide', done: 'nineSlideAnimationCompleted', line: '#nineSlide .nine-vertical-line' },
   { id: 'detailsSlidenew9', flag: 'hasShownDetailsSlidenew9', done: 'detailsSlidenew9AnimationCompleted', line: '#detailsSlidenew9 .details-vertical-line' },
   { id: 'fifteenSlide', flag: 'hasShownFifteenSlide', done: 'fifteenSlideAnimationCompleted', line: '#fifteenSlide .fifteen-vertical-line' },
+  { id: 'sdtdHome', flag: 'hasShownSdtdHome', done: 'sdtdHomeAnimationCompleted' },
   { id: 'sixSlide', flag: 'hasShownSixSlide', done: 'sixSlideAnimationCompleted', line: '#sixSlide .six-vertical-line' },
   { id: 'detailsSlidenew', flag: 'hasShownDetailsSlidenew', done: 'detailsSlidenewAnimationCompleted', line: '#detailsSlidenew .details-vertical-line' },
   { id: 'fourteenSlide', flag: 'hasShownFourteenSlide', done: 'fourteenSlideAnimationCompleted', line: '#fourteenSlide .fourteen-vertical-line' },
+  { id: 'sdtdcHome', flag: 'hasShownSdtdcHome', done: 'sdtdcHomeAnimationCompleted' },
   { id: 'sevenSlide', flag: 'hasShownSevenSlide', done: 'sevenSlideAnimationCompleted', line: '#sevenSlide .seven-vertical-line' },
+  { id: 'ytypeHome', flag: 'hasShownYtypeHome', done: 'ytypeHomeAnimationCompleted' },
   { id: 'eightSlide', flag: 'hasShownEightSlide', done: 'eightSlideAnimationCompleted', line: '#eightSlide .eight-vertical-line' },
+  { id: 'bypassHome', flag: 'hasShownBypassHome', done: 'bypassHomeAnimationCompleted' },
   { id: 'nineteenthSlide', flag: 'hasShownNineteenthSlide', done: 'nineteenthSlideAnimationCompleted', line: '#nineteenthSlide .nineteenth-vertical-line' },
   { id: 'twentiethSlide', flag: 'hasShownTwentiethSlide', done: 'twentiethSlideAnimationCompleted', line: '#twentiethSlide .twentieth-vertical-line' },
   { id: 'twentiethoneSlide', flag: 'hasShownTwentiethoneSlide', done: 'twentiethoneSlideAnimationCompleted', line: '#twentiethoneSlide .twentiethone-vertical-line' },
+  { id: 'scaleHome', flag: 'hasShownScaleHome', done: 'scaleHomeAnimationCompleted' },
   { id: 'sixteenthSlide', flag: 'hasShownSixteenthSlide', done: 'sixteenthSlideAnimationCompleted', line: '#sixteenthSlide .sixteenth-vertical-line' },
   { id: 'seventeenthSlide', flag: 'hasShownSeventeenthSlide', done: 'seventeenthSlideAnimationCompleted', line: '#seventeenthSlide .seventeenth-vertical-line' },
   { id: 'eighteenSlide', flag: 'hasShownEighteenSlide', done: 'eighteenSlideAnimationCompleted', line: '#eighteenSlide .eighteen-vertical-line' },
-
-
-
+  { id: 'thankyou', flag: 'hasShownThankyou', done: 'thankyouAnimationCompleted' },
 
 ].map(s => ({
   ...s,
@@ -99,6 +103,7 @@ slides.forEach(s => {
   });
 });
 
+
 let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) {
@@ -117,6 +122,8 @@ window.addEventListener('scroll', () => {
     ticking = true;
   }
 });
+
+
 
 function handleScroll(scrollY) {
 
@@ -144,10 +151,19 @@ function handleScroll(scrollY) {
   }
 
   slides.forEach((s, index) => {
-    const offset = baseScroll + index * 200;
+    const offset = baseScroll + index * 300;
     const prevDone = index === 0 ? 'textAnimationCompleted' : slides[index - 1].done;
 
-    if (scrollY > offset && !animationFlags[s.flag] && animationFlags[prevDone]) {
+    if (
+      isScrollingDown &&
+      index === slides.length - 1 &&
+      scrollY >= offset - 5 &&
+      !animationFlags[s.flag]
+    ) {
+      scrollY = offset + 1;
+    }
+
+    if (scrollY > offset && !animationFlags[s.flag] && animationFlags[prevDone] && isScrollingDown) {
       animationFlags[s.flag] = true;
       s.slide?.classList.add('visible');
       s.lineEl?.classList.add('active');
@@ -158,15 +174,22 @@ function handleScroll(scrollY) {
     } else if (scrollY <= offset && animationFlags[s.flag]) {
       animationFlags[s.flag] = false;
       animationFlags[s.done] = false;
-      s.slide?.classList.add('slide-out');
+
+      s.slide?.classList.add('fade-out');
       s.lineEl?.classList.remove('active');
+
+      s.slide?.addEventListener('transitionend', function onTransitionEnd() {
+        s.slide?.classList.remove('fade-out', 'visible');
+        s.slide?.removeEventListener('transitionend', onTransitionEnd);
+      });
+
       if (s.id === 'secondSlidenew') {
         pageIndicator?.classList.remove('visible');
       }
-
     }
 
   });
+
 
   if (scrollY <= 100 && animationFlags.hasAnimatedV) {
     animationFlags.hasAnimatedV = false;
@@ -230,7 +253,7 @@ function updateCurrentPage() {
         break;
       }
     }
-  }else{
+  } else {
     const sortedSet = Array.from(set).sort((a, b) => a - b);
     let targetPage = -1;
     let left = 0, right = sortedSet.length - 1;
@@ -250,6 +273,25 @@ function updateCurrentPage() {
       console.warn("No valid option found");
     }
   }
+
+  const isThankYouPage = slides[pageNumber - 2]?.id === 'thankyou';
+   
+  if (isThankYouPage) {
+    pageIndicator?.classList.remove('visible');
+    navSelect?.classList.remove('visible');
+    pageInput?.classList.remove('visible');
+    navbar?.classList.remove('visible');
+    navbar.style.display = 'none';
+    socialIcons?.classList.remove('visible');
+  } else if(pageNumber>2){
+    pageIndicator?.classList.add('visible');
+    navSelect?.classList.add('visible');
+    pageInput?.classList.add('visible');
+    navbar?.classList.add('visible');
+    navbar.style.display = 'flex';
+    socialIcons?.classList.add('visible');
+  }
+
 
 }
 
@@ -278,23 +320,43 @@ function showOnlySlide(indexToShow) {
 }
 
 function selectOptionByDataId(targetPage) {
-    for (let i = 0; i < navSelect.options.length; i++) {
-      const option = navSelect.options[i];
-      const dataId = parseInt(option.getAttribute('data-id'), 10);
-      if (dataId === targetPage) {
-        navSelect.selectedIndex = i;
-        break;
-      }
+  for (let i = 0; i < navSelect.options.length; i++) {
+    const option = navSelect.options[i];
+    const dataId = parseInt(option.getAttribute('data-id'), 10);
+    if (dataId === targetPage) {
+      navSelect.selectedIndex = i;
+      break;
     }
   }
+}
 
 function scrollToPage(page) {
   if (isNaN(page) || page < 1 || page > slides.length + 1) return;
-  playAudioForPage(page)
+
+  playAudioForPage(page);
+  if (page >= 1) {
+    pageIndicator?.classList.add('visible');
+  } else {
+    pageIndicator?.classList.remove('visible');
+  }
   isProgrammaticScroll = true;
 
   const offset = page === 1 ? 0 : 280 + (page - 2) * 300;
-  showOnlySlide(page - 1);
+
+  slides.forEach((s, index) => {
+    if (index < page - 1) {
+      s.slide?.classList.add('visible');
+      s.lineEl?.classList.add('active');
+      animationFlags[s.flag] = true;
+      animationFlags[s.done] = true;
+    } else {
+      s.slide?.classList.remove('visible', 'slide-out');
+      s.lineEl?.classList.remove('active');
+      animationFlags[s.flag] = false;
+      animationFlags[s.done] = false;
+    }
+  });
+
   window.scrollTo({ top: offset + 10, behavior: 'smooth' });
 
   if (set.has(page)) {
@@ -320,23 +382,24 @@ function scrollToPage(page) {
     }
   }
 
-
   setTimeout(() => {
     isProgrammaticScroll = false;
+    updateCurrentPage();
   }, 800);
 }
+
 
 const pageMapping = {
   '.second-slide-new': 2,
   '.second-slide': 3,
   '.fourth-slide': 4,
-  '.fifth-slide': 5,
-  '.nine-slide': 11,
-  '.six-slide': 14,
-  '.seven-slide': 17,
-  '.eight-slide': 18,
-  '.nineteenth-slide': 19,
-  '.sixteenth-slide': 22,
+  '.dtd-home': 5,
+  '.bvd-home': 13,
+  '.sdtd-home': 17,
+  '.sdtd-c-home': 21,
+  '.ytypehome': 23,
+  '.bypasshome': 25,
+  '.scalehome': 29,
 };
 
 
