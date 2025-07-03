@@ -22,6 +22,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -64,13 +65,18 @@
 
     <div class="first-circle" id="circle">
       <div class="circle-content">
-        <div class="text">DIVERTER</div>
+        <div class="text text-diverter">DIVERTER</div>
         <img src="./images/DTDnew.png" class="center-image" alt="DTD" />
-        <div class="text">
-          <span class="valve-letter">V</span>ALVE
-        </div>
+        <div class="text text-valve"><span class="valve-letter">V</span>ALVE</div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-icon"></div>
+        <span>SCROLL TO EXPLORE</span>
       </div>
     </div>
+
+
 
     <section class="rapslide">
 
@@ -81,8 +87,9 @@
         <div class="center-heading">DIVERTER</div>
         <div class="slide-content">
           <div class="left-group">
-            <div class="spec-header-row">
-              <div class="spec-box1 with-arrows black-bg">INTRODUCTION TO DIVERTER VALVES</div>
+            <div class="spec-header-row" style=" overflow: hidden;">
+              <div class="spec-box1 with-arrows black-bg"><span class="spec-text">INTRODUCTION TO DIVERTER VALVES</span>
+              </div>
             </div>
             <div class="left-column">
               <div class="left-intro">
@@ -99,7 +106,27 @@
           </div>
 
           <div class="right-column">
-            <img src="./images/diverter valves.png" alt="Valve Image" class="valve-image" />
+            <div
+              style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 33%; height: 100%;">
+              <img src="./images/Diverter introduction/BVD.webp" alt="" class="animated-img"
+                style="width: 100%; height: 48%;">
+              <img src="./images/Diverter introduction/Ytype.webp" alt="" class="animated-img"
+                style="width: 100%; height: 48%;">
+            </div>
+            <div
+              style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 64%; height: 100%; flex-wrap: wrap;">
+              <div style="width: 100%; height: 40%; display: flex; justify-content: center; align-items: center;">
+                <img src="./images/Diverter introduction/DTD.webp" alt="" class="animated-img"
+                  style="width: 100%; height: 100%;">
+              </div>
+              <div
+                style="width: 100%; height: 56%; display: flex; justify-content: space-between; align-items: center;">
+                <img src="./images/Diverter introduction/scale.webp" alt="" class="animated-img"
+                  style="width: 48%; height: 100%;">
+                <img src="./images/Diverter introduction/By pass.webp" alt="" class="animated-img"
+                  style="width: 48%; height:100%;">
+              </div>
+            </div>
           </div>
         </div>
         <div class="vertical-line" id="verticalLine"></div>
@@ -115,8 +142,8 @@
         <div class="slide-content">
           <div class="left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 with-arrows black-bg">PRODUCT</div>
-              <div class="spec-box1 with-arrows">APPLICATION</div>
+              <div class="spec-box1 with-arrows black-bg" style=" overflow: hidden;"><span class="spec-text">PRODUCT</span></div>
+              <div class="spec-box1 with-arrows" style=" overflow: hidden;"><span class="spec-text">APPLICATION</span></div>
             </div>
             <div class="left-column">
               <div class="arrow-stack">
@@ -147,8 +174,8 @@
         <div class="fourth-content">
           <div class="fourth-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">TYPES OF</div>
-              <div class="spec-box1">DIVERTER VALVE</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">TYPES OF</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">DIVERTER VALVE</span></div>
             </div>
             <div class="details-description1">
               <ul class="feature-list">
@@ -217,7 +244,7 @@
         <div class="slide-content">
           <div class="left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 with-arrows black-bg">INTRODUCTION TO DTD</div>
+              <div class="spec-box1 with-arrows black-bg"  style=" overflow: hidden;"> <span class="spec-text">INTRODUCTION TO DTD</span></div>
             </div>
             <div class="left-column">
               <div class="left-intro">
@@ -275,8 +302,8 @@
           </div>
 
           <div class="spec-header-row1">
-            <div class="spec-box1 black-bg2">DTD</div>
-            <div class="spec-box1 blue-bg1">Drum Type Diverter</div>
+            <div class="spec-box1 black-bg2" style=" overflow: hidden;"><span class="spec-text">DTD</span></div>
+            <div class="spec-box1 blue-bg1" style=" overflow: hidden;"><span class="spec-text">Drum Type Diverter</span></div>
           </div>
 
           <div class="details-right-column1">
@@ -295,8 +322,8 @@
         <div class="details-content">
           <div class="details-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">PRODUCT</div>
-              <div class="spec-box1">FEATURES & OPTIONS</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">PRODUCT</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">FEATURES & OPTIONS</span></div>
             </div>
 
             <div class="details-description">
@@ -355,8 +382,8 @@
 
           <div class="ten-right-group">
             <div class="spec-header-row4">
-              <div class="spec-box11 black-bg" style="background-color: #1877F2 !important;">Diverter Valve</div>
-              <div class="spec-box1" style="background-color: #000000 !important;">Parts</div>
+              <div class="spec-box11 black-bg" style="background-color: #1877F2 !important; overflow: hidden;" ><span class="spec-text">Diverter Valve</span></div>
+              <div class="spec-box1" style="background-color: #000000 !important; overflow: hidden;"><span class="spec-text">Parts</span></div>
             </div>
             <div class="details-right-column3">
               <img src="./images/PlugwithHosing.gif" alt="Image 2">
@@ -377,8 +404,8 @@
 
           <div class="eleven-left-group">
             <div class="spec-header-row4">
-              <div class="spec-box1 black-bg">Different</div>
-              <div class="spec-box1 blue-bg1"> installation of diverter</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">Different</span></div>
+              <div class="spec-box1 blue-bg1" style=" overflow: hidden;"> <span class="spec-text">Installation of diverter</span></div>
             </div>
 
 
@@ -428,8 +455,8 @@
           </div>
 
           <div class="spec-header-row12">
-            <div class="spec-box1 black-bg">Selling</div>
-            <div class="spec-box1">Points</div>
+            <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">Selling</span></div>
+            <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">Points</span></div>
           </div>
 
           <div class="tweleve-left-group">
@@ -484,11 +511,11 @@
           </div>
 
           <div class="spec-header-row13">
-            <div class="spec-box1 " style="width: 18vw; border-radius: 10px;  margin-top: 0vw;">DTD ( Drum Type
+            <div class="spec-box1 " style="width: 18vw; border-radius: 10px;  margin-top: 0vw; overflow: hidden;" ><span class="spec-text">DTD ( Drum Type
               Diverter
-              valve )</div>
-            <div class="spec-box1 black-bg" style="width: 18vw; border-radius: 10px;  margin-top: -40vw;">Frequently
-              Asked Questions</div>
+              valve )</span></div>
+            <div class="spec-box1 black-bg" style="width: 18vw; border-radius: 10px;  margin-top: -40vw; overflow: hidden;"><span class="spec-text">Frequently
+              Asked Questions</span></div>
           </div>
 
           <div class="thirteen-left-group">
@@ -542,8 +569,8 @@
       <div class="nine-slide page-section slide" id="nineSlide">
         <div class="nine-heading">BDV</div>
         <div class="spec-header-row2">
-          <div class="spec-box1 black-bg2">BDV</div>
-          <div class="spec-box1">BDV Diverter</div>
+          <div class="spec-box1 black-bg2" style=" overflow: hidden;"><span class="spec-text">BDV</span></div>
+          <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">BDV Diverter</span></div>
         </div>
         <div class="nine-content">
           <div class="details-right-column15">
@@ -573,8 +600,8 @@
         <div class="details-content">
           <div class="details-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">BDV</div>
-              <div class="spec-box1">FEATURES & OPTIONS</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">BDV</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">FEATURES & OPTIONS</span></div>
             </div>
 
             <div class="details-description">
@@ -630,16 +657,16 @@
           <div class="spec-header-row14">
             <div class="spec-box14 " style="width: 40vw; border-radius: 10px;  margin-top: 2.5vw; display: flex;">
               <div
-                style="width: 20.9vw; border-radius: 5px 0 0 5px; border-right: 1px solid black;  background-color: #1877F2; padding: 10px; padding-right: 25px;">
-                LSV ( Line Selector valve )</div>
-              <div style="width: 18.7vw; border-radius: 0px 5px 5px 0px;  background-color: #000000; padding: 10px;">
-                BDV
-                ( Ball Type Diverter valve )</div>
+                style="width: 20.9vw; border-radius: 5px 0 0 5px; border-right: 1px solid black;  background-color: #1877F2; padding: 10px; padding-right: 25px;" style=" overflow: hidden;">
+                <span class="spec-text">LSV ( Line Selector valve )</span></div>
+              <div style="width: 18.7vw; border-radius: 0px 5px 5px 0px;  background-color: #000000; padding: 10px;" style=" overflow: hidden;">
+                <span class="spec-text">BDV
+                ( Ball Type Diverter valve )</span></div>
             </div>
 
             <div class="spec-box1 black-bg"
-              style="width: 18vw; border-radius: 10px;  margin-top: -42vw; margin-left: 28%;">Frequently
-              Asked Questions</div>
+              style="width: 18vw; border-radius: 10px;  margin-top: -42vw; margin-left: 28%;"><span class="spec-text">Frequently
+              Asked Questions</span></div>
           </div>
 
 
@@ -682,8 +709,8 @@
       <div class="six-slide page-section slide" id="sixSlide">
         <div class="six-heading">SDTD</div>
         <div class="spec-header-row2">
-          <div class="spec-box1 black-bg2">SDTD</div>
-          <div class="spec-box1 blue-bg1">Single Drum Type Diverter</div>
+          <div class="spec-box1 black-bg2" style=" overflow: hidden;"><span class="spec-text">SDTD</span></div>
+          <div class="spec-box1 blue-bg1" style=" overflow: hidden;"><span class="spec-text">Single Drum Type Diverter</span></div>
         </div>
         <div class="six-content">
           <div class="details-right-column12">
@@ -726,8 +753,8 @@
           <!-- Left Side -->
           <div class="details-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">SDTD</div>
-              <div class="spec-box1">FEATURES & OPTIONS</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">SDTD</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">FEATURES & OPTIONS</span></div>
             </div>
 
             <div class="details-description">
@@ -790,15 +817,15 @@
           <div class="spec-header-row14">
             <div class="spec-box14 " style="width: 40vw; border-radius: 10px;  margin-top: 2.5vw; display: flex;">
               <div
-                style="width: 20.9vw; border-radius: 5px 0 0 5px; border-right: 1px solid black;  background-color: #1877F2; padding: 10px; padding-right: 20px;">
-                SDTD ( Single Tunnel Drum type Diverter ) </div>
-              <div style="width: 18.7vw; border-radius: 0px 5px 5px 0px;  background-color: #000000; padding: 10px;">
-                FDV
-                ( Flap Diverter valve )</div>
+                style="width: 20.9vw; border-radius: 5px 0 0 5px; border-right: 1px solid black;  background-color: #1877F2; padding: 10px; padding-right: 20px;" style=" overflow: hidden;">
+                <span class="spec-text">SDTD ( Single Tunnel Drum type Diverter ) </span></div>
+              <div style="width: 18.7vw; border-radius: 0px 5px 5px 0px;  background-color: #000000; padding: 10px;" style=" overflow: hidden;">
+                <span class="spec-text">FDV
+                ( Flap Diverter valve )</span></div>
             </div>
 
             <div class="spec-box1 black-bg"
-              style="width: 18vw; border-radius: 10px;  margin-top: -42vw; margin-left: 28%;">Frequently
+              style="width: 18vw; border-radius: 10px;  margin-top: -42vw; margin-left: 28%;"><span class="spec-text"></span>Frequently
               Asked Questions</div>
           </div>
 
@@ -866,8 +893,8 @@
           </div>
 
           <div class="spec-header-row1">
-            <div class="spec-box1 black-bg1" style="background-color: #1877F2  !important;">SDTD-C</div>
-            <div class="spec-box1 blue-bg1" style="background-color: #000000  !important;">Single Drum Type Diverter
+            <div class="spec-box1 black-bg1" style="background-color: #1877F2  !important;" style=" overflow: hidden;"><span class="spec-text">SDTD-C</span></div>
+            <div class="spec-box1 blue-bg1" style="background-color: #000000  !important;" style=" overflow: hidden;"><span class="spec-text">Single Drum Type Diverter</span>
             </div>
           </div>
 
@@ -918,8 +945,8 @@
           </div>
 
           <div class="spec-header-row1">
-            <div class="spec-box1 black-bg2">Y-VALVE</div>
-            <div class="spec-box1 blue-bg1">Flap Type Diverter</div>
+            <div class="spec-box1 black-bg2" style=" overflow: hidden;"><span class="spec-text">Y-VALVE</span></div>
+            <div class="spec-box1 blue-bg1" style=" overflow: hidden;"><span class="spec-text">Flap Type Diverter</span></div>
           </div>
 
           <div class="details-right-column14">
@@ -937,7 +964,7 @@
           <div class="homedivs">
             <span style="text-align: left; margin-left: 3%;">BY PASS</span>VALVE<br>
           </div>
-          <div class="homedivs1"><img src="./images/bypass.png" alt="" ></div>
+          <div class="homedivs1"><img src="./images/bypass.png" alt=""></div>
         </div>
       </div>
 
@@ -948,7 +975,7 @@
         <div class="slide-content">
           <div class="left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 with-arrows black-bg">INTRODUCTION TO BY PASS VALVE</div>
+              <div class="spec-box1 with-arrows black-bg" style=" overflow: hidden;"><span class="spec-text">INTRODUCTION TO BY PASS VALVE</span></div>
             </div>
             <div class="left-column">
               <div class="left-intro">
@@ -966,7 +993,7 @@
           </div>
 
           <div class="right-column">
-            <img src="./images/bypass.png" alt="Valve Image" class="valve-image"  />
+            <img src="./images/bypass.png" alt="Valve Image" class="valve-image" />
           </div>
         </div>
         <div class="nineteenth-vertical-line"></div>
@@ -981,8 +1008,8 @@
         <div class="twentieth-content">
           <div class="twentieth-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">BY PASS VALVE</div>
-              <div class="spec-box1">FEATURES & OPTIONS</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">BY PASS VALVE</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">FEATURES & OPTIONS</span></div>
             </div>
 
             <div class="twentieth-description">
@@ -1040,7 +1067,7 @@
           </div>
 
           <div class="by-header-row">
-            <div class="spec-box1 black-bg2">BY PASS VALVE</div>
+            <div class="spec-box1 black-bg2" style=" overflow: hidden;"><span class="spec-text">BY PASS VALVE</span></div>
           </div>
 
           <div class="details-right-column24">
@@ -1073,7 +1100,8 @@
           <div class="homedivs">
             <span style="text-align: left; margin-left: 5%;">SCALE </span>VALVE<br>
           </div>
-          <div class="homedivs1"><img src="./images/Scale valve.webp" alt="" style="height: 80% !important; width: auto;"></div>
+          <div class="homedivs1"><img src="./images/Scale valve.webp" alt=""
+              style="height: 80% !important; width: auto;"></div>
         </div>
       </div>
 
@@ -1084,7 +1112,7 @@
         <div class="slide-content">
           <div class="left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 with-arrows black-bg">INTRODUCTION TO SCALE VALVE</div>
+              <div class="spec-box1 with-arrows black-bg" style=" overflow: hidden;"><span class="spec-text">INTRODUCTION TO SCALE VALVE</span></div>
             </div>
             <div class="left-column">
               <div class="left-intro">
@@ -1118,8 +1146,8 @@
         <div class="seventeenth-content">
           <div class="seventeenth-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">SCALE VALVE</div>
-              <div class="spec-box1">FEATURES & OPTIONS</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">SCALE VALVE</span></div>
+              <div class="spec-box1" style=" overflow: hidden;"><span class="spec-text">FEATURES & OPTIONS</span></div>
             </div>
 
             <div class="seventeenth-description">
@@ -1157,7 +1185,7 @@
         <div class="eighteen-content">
           <div class="eighteen-left-group">
             <div class="spec-header-row">
-              <div class="spec-box1 black-bg">SCALE VALVE</div>
+              <div class="spec-box1 black-bg" style=" overflow: hidden;"><span class="spec-text">SCALE VALVE</span></div>
             </div>
 
             <div class="eighteen-description">
@@ -1188,9 +1216,82 @@
       </div>
 
     </section>
+    <script>
+      const trailLength = 10;
+      const trailSegments = [];
+      for (let i = 0; i < trailLength; i++) {
+        const segment = document.createElement("div");
+        segment.className = "trail-segment";
+        document.body.appendChild(segment);
+        trailSegments.push(segment);
+      }
+
+      document.querySelectorAll('.video-container, .someOtherSection').forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          document.body.classList.add("hide-custom-cursor");
+        });
+        el.addEventListener('mouseleave', () => {
+          document.body.classList.remove("hide-custom-cursor");
+        });
+      });
+
+    </script>
+    <script>
+      const segments = [
+        document.querySelector(".segment-black"),
+        document.querySelector(".segment-cyan"),
+        document.querySelector(".segment-purple"),
+        document.querySelector(".segment-orange"),
+        document.querySelector(".segment-green"),
+        document.querySelector(".segment-pink"),
+        document.querySelector(".segment-blue")
+      ];
+
+      const angles = [
+        [0, 51],
+        [51, 102],
+        [102, 153],
+        [153, 204],
+        [204, 255],
+        [255, 306],
+        [306, 360]
+      ];
+
+      const colorSets = [
+        ["#f14f3a", "#f19882"],
+        ["#00d4c4", "#33f2e7"],
+        ["#6c45ff", "#a580ff"],
+        ["#ffaa00", "#ffd166"],
+        ["#0edd3b", "#8aff94"],
+        ["#e92cd9", "#ff91f2"],
+        ["#0b6ceb", "#66aaff"]
+      ];
+
+      function applyGradients(colors) {
+        segments.forEach((seg, i) => {
+          const [start, end] = angles[i];
+          const [c1, c2] = colors[i];
+
+          seg.style.background = `conic-gradient(
+        transparent 0deg ${start}deg,
+        ${c1} ${start}deg,
+        ${c2} ${end}deg,
+        transparent ${end}deg 360deg
+      )`;
+        });
+      }
+
+      applyGradients(colorSets);
+      setInterval(() => {
+        colorSets.unshift(colorSets.pop());
+        applyGradients(colorSets);
+      }, 2000);
+    </script>
+
 
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="./test1.js"></script>
 
 </body>
