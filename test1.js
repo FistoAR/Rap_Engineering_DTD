@@ -14,7 +14,7 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 13, 17, 21, 23, 25, 29]);
+const set = new Set([2, 3, 4, 5, 14, 18, 22, 24, 26, 30]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 
@@ -29,6 +29,7 @@ const slides = [
   { id: 'tenSlide', flag: 'hasShownTenSlide', done: 'tenSlideAnimationCompleted', line: '#tenSlide .ten-vertical-line' },
   { id: 'elevenSlide', flag: 'hasShownElevenSlide', done: 'elevenSlideAnimationCompleted', line: '#elevenSlide .eleven-vertical-line' },
   { id: 'tweleveSlide', flag: 'hasShownTweleveSlide', done: 'tweleveSlideAnimationCompleted', line: '#tweleveSlide .tweleve-vertical-line' },
+  { id: 'twelevenewSlide', flag: 'hasShownTweleveNewSlide', done: 'twelevenewSlideAnimationCompleted' },
   { id: 'thirteenSlide', flag: 'hasShownThirteenSlide', done: 'thirteenSlideAnimationCompleted', line: '#thirteenSlide .thirteen-vertical-line' },
   { id: 'bvdHome', flag: 'hasShownBvdHome', done: 'bvdHomeAnimationCompleted' },
   { id: 'nineSlide', flag: 'hasShownNineSlide', done: 'nineSlideAnimationCompleted', line: '#nineSlide .nine-vertical-line' },
@@ -335,6 +336,7 @@ function scrollToPage(page) {
   if (isNaN(page) || page < 1 || page > slides.length + 1) return;
 
   playAudioForPage(page);
+  animation(page)
   if (page >= 1) {
     pageIndicator?.classList.add('visible');
   } else {
@@ -395,12 +397,12 @@ const pageMapping = {
   '.second-slide': 3,
   '.fourth-slide': 4,
   '.dtd-home': 5,
-  '.bvd-home': 13,
-  '.sdtd-home': 17,
-  '.sdtd-c-home': 21,
-  '.ytypehome': 23,
-  '.bypasshome': 25,
-  '.scalehome': 29,
+  '.bvd-home': 14,
+  '.sdtd-home': 18,
+  '.sdtd-c-home': 22,
+  '.ytypehome': 24,
+  '.bypasshome': 26,
+  '.scalehome': 30,
 };
 
 
@@ -590,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
       featureList.innerHTML = '';
       valve.description.forEach(item => {
         const li = document.createElement('li');
-        li.innerHTML = `<img src="./images/Vector.png" alt=""> ${item}`;
+        li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${item}`;
         featureList.appendChild(li);
       });
       detailsDescription.style.display = 'block';
@@ -639,14 +641,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   features.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     feature.appendChild(li);
   });
 
 
   options.forEach((feature) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
     option.appendChild(li);
   });
 
@@ -676,14 +678,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   features6.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     feature6.appendChild(li);
   });
 
 
   options6.forEach((feature) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
     option6.appendChild(li);
   });
 
@@ -708,14 +710,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   features9.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     feature9.appendChild(li);
   });
 
 
   options9.forEach((feature) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
     option9.appendChild(li);
   });
 
@@ -743,20 +745,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   featuresscale.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     featurescale.appendChild(li);
   });
 
   featuresscale1.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     featurescale1.appendChild(li);
   });
 
 
   optionsscale.forEach((feature) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
     optionscale.appendChild(li);
   });
 
@@ -782,20 +784,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   featuresby.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     featureby.appendChild(li);
   });
 
   featuresby1.forEach((featur) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${featur}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
     featureby1.appendChild(li);
   });
 
 
   optionsby.forEach((feature) => {
     const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" alt=""> ${feature}`;
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
     optionby.appendChild(li);
   });
 
@@ -951,8 +953,11 @@ window.addEventListener("load", () => {
 let previous = 0;
 
 function animation(page) {
+  // if(isScrollingDown){
+  //   page=page-1
+  // }
   if (previous == page) return
-  console.log(page)
+  const animatedPages = [4, 7, 8, 11, 16, 20, 23, 25, 28, 32];
   if (page == "2" && previous != page) {
     gsap.set(".spec-header-row", { opacity: 0, x: -100 });
     gsap.set(".left-column", { opacity: 0, x: -100 });
@@ -971,6 +976,7 @@ function animation(page) {
       ease: "power3.out",
       delay: 0.3
     });
+
     gsap.set(".animated-img", {
       opacity: 0,
       scale: 0.8
@@ -982,7 +988,103 @@ function animation(page) {
       ease: "power3.out",
       stagger: 0.3
     });
+  } else if (page == "3" || page == "6") {
+
+    gsap.set(".valve-image", {
+      clearProps: "all"
+    });
+
+    gsap.from(".valve-image", {
+      y: -300,
+      rotation: 60,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.out"
+    });
+
+    gsap.from(".animated-desc", {
+      x: -150,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.8
+    });
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+
+    tl.to([".arrow-target1", ".arrow-target2", ".arrow-target3", ".arrow-target4"], {
+      x: -35,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power2.inOut",
+      stagger: 0.4
+    })
+      .to([".arrow-target1", ".arrow-target2", ".arrow-target3", ".arrow-target4"], {
+        x: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        stagger: 0.2
+      });
+  } else if (animatedPages.includes(page)) {
+    const listDivs = {
+      4: 'fourthSlide',
+      7: 'fifthSlide',
+      8: 'detailsSlide',
+      11: 'tweleveSlide',
+      16: 'detailsSlidenew9',
+      20: 'detailsSlidenew',
+      23: 'sevenSlide',
+      25: 'eightSlide',
+      28: 'twentiethSlide',
+      32: 'seventeenthSlide'
+    };
+
+    const containerId = `#${listDivs[page]}`;
+
+    if (page == 7) {
+      gsap.from(`#fifthSlide .details-right-column1 img`, {
+        rotateX: 360,
+        x: 600,
+        duration: 1.2,
+        opacity: 0,
+        ease: "power3.out"
+      });
+    }
+
+
+    gsap.set(`${containerId} .feature-list li`, { x: -50, opacity: 0 });
+
+    gsap.to(`${containerId} .feature-list li`, {
+      x: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.2,
+      delay: 0.5
+    });
+
+    gsap.set(`${containerId} .bullet-icon`, { scale: 0, x: -7 });
+
+    gsap.to(`${containerId} .bullet-icon`, {
+      scale: 1,
+      duration: 0.5,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
+      delay: 1,
+      onComplete: () => {
+        gsap.to(`${containerId} .bullet-icon`, {
+          x: 5,
+          duration: 1,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          stagger: 0.2
+        });
+      }
+    });
+
   }
+
 
   gsap.fromTo(".spec-box1",
     { y: -150, opacity: 0 },
@@ -994,7 +1096,60 @@ function animation(page) {
     }
   );
 
+  gsap.set(".homedivs", { x: -300, opacity: 0 });
+  gsap.set(".homedivs1", { y: -300, opacity: 0 });
+
+  gsap.to(".homedivs", {
+    x: 0,
+    opacity: 1,
+    duration: 1.5,
+    ease: "power3.out",
+    delay: 1
+  });
+
+  gsap.to(".homedivs1", {
+    y: 0,
+    opacity: 1,
+    duration: 1.5,
+    ease: "power3.out",
+    delay: 1.1,
+    onComplete: () => {
+      gsap.to(".homedivs1 img", {
+        y: 30,
+        duration: 2.5,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true
+      });
+      gsap.to(".homedivs1 img", {
+        x: 15,
+        duration: 3,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: 0.5
+      });
+      gsap.to(".homedivs1 img", {
+        rotation: 5,
+        duration: 4,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: 1
+      });
+    }
+  });
+
   previous = page
+
+  const indicator = document.querySelector(".page-indicator");
+
+  indicator.classList.add("active-btn");
+
+  setTimeout(() => {
+    indicator.classList.remove("active-btn");
+  }, 2000);
+
 }
 
 gsap.set(".spec-text", { x: "100%", opacity: 0 });
@@ -1011,4 +1166,108 @@ tl.to(".spec-text", {
   duration: 1,
   ease: "power3.in",
   delay: 1
+});
+
+
+
+
+const modelViewer = document.querySelector("#rotaryModel");
+const normalBtn = document.querySelector("#normalBtn");
+const explodedBtn = document.querySelector("#explodedBtn");
+const partsBtn = document.querySelector("#partsBtn");
+const hotspots = modelViewer.querySelectorAll(".HotspotAnnotation");
+const exploaded = document.querySelectorAll(".exploaded-btn");
+function toggleHotspots(visible) {
+  hotspots.forEach(h => {
+    h.style.display = visible ? 'inline' : 'none';
+  });
+}
+
+normalBtn.addEventListener("click", () => {
+  $('.model3d model-viewer button').css('visibility', 'hidden');
+  $('.label-content').hide();
+  modelViewer.currentTime = 0;
+  modelViewer.pause();
+  toggleHotspots(false);
+});
+
+let animationTimeout;
+
+explodedBtn.addEventListener("click", () => {
+  $('.model3d model-viewer button').css('visibility', 'hidden');
+  $('.label-content').hide();
+  modelViewer.currentTime = 0;
+  modelViewer.play();
+  toggleHotspots(false);
+  clearTimeout(animationTimeout);
+  animationTimeout = setTimeout(() => {
+    modelViewer.pause();
+  }, 10980);
+});
+let stopAt8sInterval = null;
+
+partsBtn.addEventListener("click", () => {
+  $('.model3d model-viewer button').css('visibility', 'visible');
+  modelViewer.currentTime = 10.98;
+  modelViewer.play();
+  requestAnimationFrame(() => {
+    modelViewer.pause();
+    toggleHotspots(true);
+  });
+  clearInterval(stopAt8sInterval);
+});
+
+
+exploaded.forEach(btn => btn.addEventListener('click', () => {
+  exploaded.forEach(b => b.classList.remove('active-explode'));
+  btn.classList.add('active-explode');
+}));
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  toggleHotspots(false);
+});
+
+
+const hotspotDescriptions = {
+  'hotspot-1': {
+    title: "Housing",
+    text: "The body and housing provide structural integrity, ensuring durability and long-term performance."
+  },
+  'hotspot-2': {
+    title: "End Cover",
+    text: "End covers are essential components that protect the internal mechanism and enhance operational safety."
+  },
+  'hotspot-4': {
+    title: "Seal",
+    text: "Durable rotary seal preventing leakage in rotating valve shaft systems."
+  },
+  'hotspot-3': {
+    title: "Rotor",
+    text: "The rotor plays a key role in the system, enabling efficient movement and performance optimization."
+  }
+};
+
+const descriptionEl = document.getElementById("hotspotDescription");
+const titleEl = document.getElementById("hotspotTitle");
+
+modelViewer.querySelectorAll(".Hotspot").forEach(button => {
+  button.addEventListener("click", () => {
+    $('.label-content').fadeIn();
+    const slotName = button.getAttribute("slot");
+    const content = hotspotDescriptions[slotName] || { title: "", text: "" };
+    descriptionEl.classList.remove("show");
+    titleEl.classList.remove("show");
+    void descriptionEl.offsetWidth;
+
+    titleEl.textContent = content.title;
+    descriptionEl.textContent = content.text;
+
+    titleEl.classList.add("show");
+    descriptionEl.classList.add("show");
+  });
+});
+
+$(document).on('click', '#close-btn', function () {
+  $('.label-content').hide();
 });

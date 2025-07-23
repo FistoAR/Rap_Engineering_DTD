@@ -334,6 +334,7 @@ body.gray-bg {
 .ten-slide,
 .eleven-slide,
 .tweleve-slide,
+.twelevenew-slide,
 .thirteen-slide,
 .dtd-home,
 .bvd-home,
@@ -487,9 +488,9 @@ body.gray-bg {
   background-color: rgb(97 97 97 / 33%);
   padding: 1.5% 1% 1.5% 2%;
   column-gap: 2.5%;
-  backdrop-filter: blur(3px); 
+  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 
@@ -502,6 +503,7 @@ body.gray-bg {
   opacity: 0;
   transform: scale(0.8);
 }
+
 .spec-header-row,
 .left-column {
   opacity: 0;
@@ -755,7 +757,7 @@ body.gray-bg {
   max-width: 300px;
 }
 
-.second-slide  .right-column {
+.second-slide .right-column {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -784,19 +786,19 @@ body.gray-bg {
   bottom: 2vh;
   right: 2vw;
   font-size: 1vw;
-  color: #D20809;
+  color: #e60a0a;
   font-weight: 600;
   background-color: transparent;
   padding: 0.5vw 2vw;
   border-radius: 0.5vw;
   z-index: 999999999;
-  border: 1px solid #898989;
+  border: 2px solid #ffffff;
 }
 
 .page-indicator input[type="number"] {
   width: 3vw;
   font-size: 1vw;
-  color: #D20809;
+  color: #d40d0d;
   background-color: transparent;
   border: none;
   outline: none;
@@ -1123,7 +1125,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -1588,7 +1590,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -1765,6 +1767,9 @@ body.gray-bg {
   margin-left: 3vw;
 }
 
+.fifth-slide .details-right-column1 img {
+  transform-origin: center center;
+}
 
 
 
@@ -1782,7 +1787,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -1970,7 +1975,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -2202,7 +2207,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -2392,7 +2397,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -2585,7 +2590,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -2621,7 +2626,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -2816,7 +2821,7 @@ body.gray-bg {
   color: #FFFFFF;
   padding: 1.1vw;
   max-width: 28vw;
-      margin-top: 5.2%;
+  margin-top: 5.2%;
   /* margin-right: 1vw; */
 }
 
@@ -2856,7 +2861,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -3083,7 +3088,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -3262,6 +3267,145 @@ body.gray-bg {
 }
 
 
+/* --------------------------- TWELEVE NEW SLIDE  ------------------------------- */
+.twelevenew-slide {
+  width: 100vw;
+  height: 100vh;
+  /* padding: 10vh 5vw; */
+  background-color: #D6D6D6;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+  /* position: absolute; */
+
+}
+
+.twelevenew-slide.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.twelevenew-heading {
+  font-size: 20vw;
+  color: transparent;
+  -webkit-text-stroke: 2px #FFFFFF;
+  text-stroke: 2px #FFFFFF;
+  position: absolute;
+  z-index: -1;
+  font-family: "Open Sans";
+  font-weight: 800;
+}
+
+.twelevenew-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 5vw;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.model3d {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.model3d .model {
+  width: 100%;
+  height: 80%;
+}
+
+.model model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.model3d model-viewer button {
+  padding: 6px 8px;
+  background: #00000073;
+  color: white;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.model3d .action-btns {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  column-gap: 5%;
+}
+
+.model3d .action-btns button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid black;
+  background-color: #6b6b6b75;
+  color: black;
+  min-width: 7%;
+  font-weight: bold;
+  font-size: 0.9vw;
+  cursor: pointer;
+
+}
+
+.model3d .action-btns .active-explode {
+  background-color: #00aaff;
+  color: white;
+  border: 1.5px solid white;
+}
+
+.model3d #hotspotTitle {
+ color: rgb(255, 255, 255);
+}
+
+.model3d .label-content {
+  text-align: center;
+  width: 25%;
+  transition: all 0.5s ease;
+  background-color: rgb(0 0 0 / 57%);
+  padding: 10px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.233);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.37);
+  text-align: justify;
+  padding: 1%;
+  position: absolute;
+  right: 4%;
+  top: 12%;
+  font-size: 1vw;
+  color: rgb(255, 255, 255);
+}
+
+.label-content.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ar-button slot {
+  display: none !important;
+}
+
+
+.swiperpage44 .swiper-pagination-bullet {
+
+  width: 15px !important;
+  height: 15px !important;
+
+}
 
 /* --------------------------- THIRTEEN SLIDE  ------------------------------- */
 .thirteen-slide {
@@ -3277,7 +3421,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -3488,7 +3632,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -3711,7 +3855,7 @@ body.gray-bg {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
@@ -5395,14 +5539,6 @@ body.gray-bg {
   pointer-events: none;
 }
 
-/* 
-.thank {
-  display: inline-block;
-  transform: translateX(0);
-  opacity: 0;
-} */
-
-
 
 
 
@@ -5479,15 +5615,87 @@ body.gray-bg {
 }
 
 @keyframes scrollDot {
-  0% { top: 8px; opacity: 1; }
-  50% { top: 16px; opacity: 0.5; }
-  100% { top: 32px; opacity: 0; }
+  0% {
+    top: 8px;
+    opacity: 1;
+  }
+
+  50% {
+    top: 16px;
+    opacity: 0.5;
+  }
+
+  100% {
+    top: 32px;
+    opacity: 0;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .segment {
   transition: background 1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+.active-btn {}
+
+.active-btn::before,
+.active-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 4px solid #00df95;
+  box-sizing: border-box;
+  border-radius: 6px;
+  animation: borderFlow 1.5s linear infinite;
+  pointer-events: none;
+}
+
+.active-btn::after {
+  border-color: #00aeff;
+  animation-delay: 0.75s;
+}
+
+@keyframes borderFlow {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  50% {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  75% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
 }
