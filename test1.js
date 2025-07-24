@@ -14,7 +14,7 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 14, 18, 22, 24, 26, 30]);
+const set = new Set([2, 3, 4, 5, 14, 19, 23, 25, 27, 31]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 
@@ -34,6 +34,7 @@ const slides = [
   { id: 'bvdHome', flag: 'hasShownBvdHome', done: 'bvdHomeAnimationCompleted' },
   { id: 'nineSlide', flag: 'hasShownNineSlide', done: 'nineSlideAnimationCompleted', line: '#nineSlide .nine-vertical-line' },
   { id: 'detailsSlidenew9', flag: 'hasShownDetailsSlidenew9', done: 'detailsSlidenew9AnimationCompleted', line: '#detailsSlidenew9 .details-vertical-line' },
+  { id: 'BDVModel', flag: 'hasShownDetailsBDVModel', done: 'BDVModelAnimationCompleted' },
   { id: 'fifteenSlide', flag: 'hasShownFifteenSlide', done: 'fifteenSlideAnimationCompleted', line: '#fifteenSlide .fifteen-vertical-line' },
   { id: 'sdtdHome', flag: 'hasShownSdtdHome', done: 'sdtdHomeAnimationCompleted' },
   { id: 'sixSlide', flag: 'hasShownSixSlide', done: 'sixSlideAnimationCompleted', line: '#sixSlide .six-vertical-line' },
@@ -398,11 +399,11 @@ const pageMapping = {
   '.fourth-slide': 4,
   '.dtd-home': 5,
   '.bvd-home': 14,
-  '.sdtd-home': 18,
-  '.sdtd-c-home': 22,
-  '.ytypehome': 24,
-  '.bypasshome': 26,
-  '.scalehome': 30,
+  '.sdtd-home': 19,
+  '.sdtd-c-home': 23,
+  '.ytypehome': 25,
+  '.bypasshome': 27,
+  '.scalehome': 31,
 };
 
 
@@ -419,42 +420,40 @@ pageInput?.addEventListener('change', e => {
 });
 
 
+const videoContainers = document.querySelectorAll(".video-container");
 
-const videoContainer = document.getElementById("videoContainer");
-const video = document.getElementById("video");
-const magnifier = document.getElementById("magnifier");
-const zoomedVideo = document.getElementById("zoomedVideo");
+videoContainers.forEach(container => {
+  const video = container.querySelector(".main-video");
+  const magnifier = container.querySelector(".magnifier");
+  const zoomedVideo = container.querySelector(".zoomed-video");
 
+  video.addEventListener("play", () => zoomedVideo.play());
+  video.addEventListener("pause", () => zoomedVideo.pause());
+  video.addEventListener("timeupdate", () => {
+    zoomedVideo.currentTime = video.currentTime;
+  });
 
-video.addEventListener("play", () => zoomedVideo.play());
-video.addEventListener("pause", () => zoomedVideo.pause());
-video.addEventListener("timeupdate", () => {
-  zoomedVideo.currentTime = video.currentTime;
+  container.addEventListener("mousemove", (e) => {
+    const { left, top, width, height } = container.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+
+    magnifier.style.left = `${x}px`;
+    magnifier.style.top = `${y}px`;
+    magnifier.style.display = "block";
+
+    const scale = 2;
+    zoomedVideo.style.width = `${width * scale}px`;
+    zoomedVideo.style.height = `${height * scale}px`;
+    zoomedVideo.style.left = `-${x * scale - magnifier.offsetWidth / 2}px`;
+    zoomedVideo.style.top = `-${y * scale - magnifier.offsetHeight / 2}px`;
+  });
+
+  container.addEventListener("mouseleave", () => {
+    magnifier.style.display = "none";
+  });
 });
 
-
-videoContainer.addEventListener("mousemove", (e) => {
-  const { left, top, width, height } = videoContainer.getBoundingClientRect();
-  const x = e.clientX - left;
-  const y = e.clientY - top;
-
-
-  magnifier.style.left = `${x}px`;
-  magnifier.style.top = `${y}px`;
-  magnifier.style.display = "block";
-
-  const scale = 2;
-  zoomedVideo.style.width = `${width * scale}px`;
-  zoomedVideo.style.height = `${height * scale}px`;
-  zoomedVideo.style.left = `-${x * scale - magnifier.offsetWidth / 2}px`;
-  zoomedVideo.style.top = `-${y * scale - magnifier.offsetHeight / 2}px`;
-
-});
-
-
-videoContainer.addEventListener("mouseleave", () => {
-  magnifier.style.display = "none";
-});
 
 
 
@@ -953,11 +952,9 @@ window.addEventListener("load", () => {
 let previous = 0;
 
 function animation(page) {
-  // if(isScrollingDown){
-  //   page=page-1
-  // }
+
   if (previous == page) return
-  const animatedPages = [4, 7, 8, 11, 16, 20, 23, 25, 28, 32];
+  const animatedPages = [4, 7, 8, 11, 16, 21, 24, 26, 29, 33];
   if (page == "2" && previous != page) {
     gsap.set(".spec-header-row", { opacity: 0, x: -100 });
     gsap.set(".left-column", { opacity: 0, x: -100 });
@@ -1032,11 +1029,11 @@ function animation(page) {
       8: 'detailsSlide',
       11: 'tweleveSlide',
       16: 'detailsSlidenew9',
-      20: 'detailsSlidenew',
-      23: 'sevenSlide',
-      25: 'eightSlide',
-      28: 'twentiethSlide',
-      32: 'seventeenthSlide'
+      21: 'detailsSlidenew',
+      24: 'sevenSlide',
+      26: 'eightSlide',
+      29: 'twentiethSlide',
+      33: 'seventeenthSlide'
     };
 
     const containerId = `#${listDivs[page]}`;
@@ -1168,106 +1165,140 @@ tl.to(".spec-text", {
   delay: 1
 });
 
+const DTDexplodedModel = document.getElementById("DTDExploded");
+const DTDfunctionModel = document.getElementById("DTDFunction");
 
+const explodedModel = document.getElementById("BDVExploded");
+const functionModel = document.getElementById("BDVFunction");
 
+const normalBtn = document.querySelectorAll(".normalBtn");
+const explodedBtn = document.querySelectorAll(".explodedBtn");
+const functionBtn = document.querySelectorAll(".functionBtn");
+const allBtns = document.querySelectorAll(".action-btns button");
 
-const modelViewer = document.querySelector("#rotaryModel");
-const normalBtn = document.querySelector("#normalBtn");
-const explodedBtn = document.querySelector("#explodedBtn");
-const partsBtn = document.querySelector("#partsBtn");
-const hotspots = modelViewer.querySelectorAll(".HotspotAnnotation");
-const exploaded = document.querySelectorAll(".exploaded-btn");
-function toggleHotspots(visible) {
-  hotspots.forEach(h => {
-    h.style.display = visible ? 'inline' : 'none';
-  });
+function stopAnimation(model) {
+  model.animationName = null;
+  model.pause();
 }
 
-normalBtn.addEventListener("click", () => {
-  $('.model3d model-viewer button').css('visibility', 'hidden');
-  $('.label-content').hide();
-  modelViewer.currentTime = 0;
-  modelViewer.pause();
-  toggleHotspots(false);
-});
-
-let animationTimeout;
-
-explodedBtn.addEventListener("click", () => {
-  $('.model3d model-viewer button').css('visibility', 'hidden');
-  $('.label-content').hide();
-  modelViewer.currentTime = 0;
-  modelViewer.play();
-  toggleHotspots(false);
-  clearTimeout(animationTimeout);
-  animationTimeout = setTimeout(() => {
-    modelViewer.pause();
-  }, 10980);
-});
-let stopAt8sInterval = null;
-
-partsBtn.addEventListener("click", () => {
-  $('.model3d model-viewer button').css('visibility', 'visible');
-  modelViewer.currentTime = 10.98;
-  modelViewer.play();
-  requestAnimationFrame(() => {
-    modelViewer.pause();
-    toggleHotspots(true);
-  });
-  clearInterval(stopAt8sInterval);
-});
-
-
-exploaded.forEach(btn => btn.addEventListener('click', () => {
-  exploaded.forEach(b => b.classList.remove('active-explode'));
-  btn.classList.add('active-explode');
-}));
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  toggleHotspots(false);
-});
-
-
-const hotspotDescriptions = {
-  'hotspot-1': {
-    title: "Housing",
-    text: "The body and housing provide structural integrity, ensuring durability and long-term performance."
-  },
-  'hotspot-2': {
-    title: "End Cover",
-    text: "End covers are essential components that protect the internal mechanism and enhance operational safety."
-  },
-  'hotspot-4': {
-    title: "Seal",
-    text: "Durable rotary seal preventing leakage in rotating valve shaft systems."
-  },
-  'hotspot-3': {
-    title: "Rotor",
-    text: "The rotor plays a key role in the system, enabling efficient movement and performance optimization."
+function playFirstAnimation(model, time = "") {
+  if (model.availableAnimations.length > 0) {
+    model.animationName = model.availableAnimations[0];
+    model.currentTime = 0;
+    model.play();
+    if (time != "") {
+      const stopAt = time;
+      function checkTime() {
+        if (model.currentTime >= stopAt) {
+          model.pause();
+        } else {
+          requestAnimationFrame(checkTime);
+        }
+      }
+      requestAnimationFrame(checkTime);
+    }
   }
-};
+}
 
-const descriptionEl = document.getElementById("hotspotDescription");
-const titleEl = document.getElementById("hotspotTitle");
+DTDexplodedModel.addEventListener('load', () => stopAnimation(DTDexplodedModel));
+explodedModel.addEventListener('load', () => stopAnimation(explodedModel));
 
-modelViewer.querySelectorAll(".Hotspot").forEach(button => {
-  button.addEventListener("click", () => {
-    $('.label-content').fadeIn();
-    const slotName = button.getAttribute("slot");
-    const content = hotspotDescriptions[slotName] || { title: "", text: "" };
-    descriptionEl.classList.remove("show");
-    titleEl.classList.remove("show");
-    void descriptionEl.offsetWidth;
 
-    titleEl.textContent = content.title;
-    descriptionEl.textContent = content.text;
+DTDfunctionModel.addEventListener('load', () => {
+  DTDfunctionModel.currentTime = 0;
+  DTDfunctionModel.play();
 
-    titleEl.classList.add("show");
-    descriptionEl.classList.add("show");
+});
+
+
+functionModel.addEventListener('load', () => {
+  functionModel.currentTime = 0;
+  functionModel.play();
+
+});
+
+
+normalBtn.forEach(normbtn => {
+  normbtn.addEventListener("click", (e) => {
+    const dataId = e.target.getAttribute("data-id");
+    if (dataId === "1") {
+      DTDexplodedModel.classList.remove("hidden");
+      DTDfunctionModel.classList.add("hidden");
+      stopAnimation(DTDexplodedModel);
+    } else {
+      explodedModel.classList.remove("hidden");
+      functionModel.classList.add("hidden");
+      stopAnimation(explodedModel);
+    }
   });
 });
 
-$(document).on('click', '#close-btn', function () {
-  $('.label-content').hide();
+explodedBtn.forEach(expolodebtn => {
+  expolodebtn.addEventListener("click", (e) => {
+    const dataId = e.target.getAttribute("data-id");
+    if (dataId === "1") {
+      DTDexplodedModel.classList.remove("hidden");
+      DTDfunctionModel.classList.add("hidden");
+      playFirstAnimation(DTDexplodedModel,5.75 );
+    } else {
+      explodedModel.classList.remove("hidden");
+      functionModel.classList.add("hidden");
+      playFirstAnimation(explodedModel,7.80);
+    }
+  });
+});
+
+
+functionBtn.forEach(funcbtn => {
+  funcbtn.addEventListener("click", (e) => {
+    const dataId = e.target.getAttribute("data-id");
+    if (dataId === "1") {
+      DTDexplodedModel.classList.add("hidden");
+      DTDfunctionModel.classList.remove("hidden");
+      playFirstAnimation(DTDfunctionModel);
+    } else {
+      explodedModel.classList.add("hidden");
+      functionModel.classList.remove("hidden");
+      playFirstAnimation(functionModel);
+    }
+  });
+});
+
+allBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const dataId = e.target.getAttribute('data-id');
+    allBtns.forEach(b => {
+      if (b.getAttribute('data-id') === dataId) {
+        b.classList.remove('active-explode');
+      }
+    });
+    btn.classList.add('active-explode');
+  });
+});
+
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("globalPreloader");
+  const models     = Array.from(document.querySelectorAll("model-viewer"));
+
+  const modelPromises = models.map(model =>
+    new Promise(resolve => {
+      if (model.loaded) return resolve();      
+      model.addEventListener("load", resolve, { once: true });
+      setTimeout(resolve, 5000);              
+    })
+  );
+
+  const timeoutFallback = new Promise(resolve => setTimeout(resolve, 5000)); 
+
+  Promise.race([Promise.all(modelPromises), timeoutFallback]).then(() => {
+
+  
+    DTDfunctionModel.classList.add("hidden");
+    functionModel.classList.add("hidden");
+
+    preloader.style.transition = "opacity 0.5s ease";
+    preloader.style.opacity    = "0";
+    setTimeout(() => preloader.style.display = "none", 2000);
+  });
 });

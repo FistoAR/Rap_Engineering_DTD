@@ -45,11 +45,11 @@
         <option value=".fourth-slide" data-id="4">4. TYPES OF DIVERTER VALVES</option>
         <option value=".dtd-home" data-id="5">5. DTD</option>
         <option value=".bvd-home" data-id="14">6. BDV</option>
-        <option value=".sdtd-home" data-id="18">7. SDTD</option>
-        <option value=".sdtd-c-home" data-id="22">8. SDTD-C</option>
-        <option value=".ytypehome" data-id="24">9. Y - TYPE</option>
-        <option value=".bypasshome" data-id="26">10. BY PASS VALVE</option>
-        <option value=".scalehome" data-id="30">11. SCALE VALVE</option>
+        <option value=".sdtd-home" data-id="19">7. SDTD</option>
+        <option value=".sdtd-c-home" data-id="23">8. SDTD-C</option>
+        <option value=".ytypehome" data-id="25">9. Y - TYPE</option>
+        <option value=".bypasshome" data-id="27">10. BY PASS VALVE</option>
+        <option value=".scalehome" data-id="31">11. SCALE VALVE</option>
       </select>
 
       <div class="social-icons">
@@ -356,12 +356,13 @@
           </div>
           <div class="details-right-column">
             <div class="grandpa3">
-              <div class="video-container" id="videoContainer">
-                <video id="video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
-                <div class="magnifier" id="magnifier">
-                  <video id="zoomedVideo" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+              <div class="video-container">
+                <video class="main-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+                <div class="magnifier">
+                  <video class="zoomed-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -505,42 +506,23 @@
 
           <div class="model3d">
             <div class="model">
-              <model-viewer src="./images/rotry valve01.glb" disable-ar camera-controls tone-mapping="neutral"
-                poster="poster.webp" shadow-intensity="1" camera-orbit="-92.55deg 85.95deg 0.2499m"
-                field-of-view="30deg" field-of-view="30deg" min-camera-orbit="auto 78deg auto"
-                max-camera-orbit="auto 78deg auto" environment-image disable-tap id="rotaryModel" disable-pan
-                interaction-prompt="none">
-                <button class="Hotspot" slot="hotspot-1" data-surface="14 0 5777 5775 5779 0.682 0.308 0.010"
-                  data-visibility-attribute="visible">
-                  <div class="HotspotAnnotation">Housing</div>
-                </button><button class="Hotspot" slot="hotspot-2" data-surface="21 0 4734 4639 4660 0.110 0.057 0.833"
-                  data-visibility-attribute="visible">
-                  <div class="HotspotAnnotation">End Cover
-                  </div>
-                </button><button class="Hotspot" slot="hotspot-3" data-surface="38 0 1244 1243 1245 0.104 0.325 0.571"
-                  data-visibility-attribute="visible">
-                  <div class="HotspotAnnotation">Rotor
-                  </div>
-                </button><button class="Hotspot" slot="hotspot-4" data-surface="169 0 368 365 369 0.104 0.872 0.024"
-                  data-visibility-attribute="visible">
-                  <div class="HotspotAnnotation">Seal
-                  </div>
-                </button>
+              <model-viewer id="DTDExploded" src="./models/DTD Explode.glb" camera-controls tone-mapping="neutral"
+                shadow-intensity="1" field-of-view="30deg" min-camera-orbit="auto 78deg auto"
+                max-camera-orbit="auto 78deg auto" camera-orbit="46.98deg 90.49deg 180.7m" disable-pan disable-tap
+                interaction-prompt="none" loop>
+              </model-viewer>
+
+              <model-viewer id="DTDFunction" src="./models/model2function.gltf" camera-controls tone-mapping="neutral"
+                shadow-intensity="1" camera-orbit="1.931deg 83.44deg 98.59m" field-of-view="30deg"
+                camera‑target="5 0.5 0" disable-pan disable-tap interaction-prompt="none" loop>
               </model-viewer>
 
             </div>
 
-            <div class="label-content" style="display: none;">
-              <h3 id="hotspotTitle"></h3>
-              <img src="./images/delete (1).png" alt="" id="close-btn"
-                style="position: absolute; top: 20%; right: 10%; width: 1.8vw; height: auto; cursor: pointer;">
-              <p id="hotspotDescription"></p>
-            </div>
-
-            <div class="action-btns">
-              <button id="normalBtn" class="exploaded-btn active-explode">Normal</button>
-              <button id="explodedBtn" class="exploaded-btn ">Exploded</button>
-              <button id="partsBtn" class="exploaded-btn ">Parts Name</button>
+            <div class="action-btns" style="margin-top: 20px;">
+              <button class="normalBtn active-explode" data-id="1" class="exploaded-btn active-explode">Normal</button>
+              <button class="explodedBtn" data-id="1" class="exploaded-btn">Exploded</button>
+              <button class="functionBtn" data-id="1" class="function-btn">Function</button>
             </div>
 
           </div>
@@ -696,16 +678,47 @@
 
           <div class="details-right-column">
             <div class="grandpa3">
-              <div class="video-container" id="videoContainer">
-                <video id="video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
-                <div class="magnifier" id="magnifier">
-                  <video id="zoomedVideo" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+              <div class="video-container">
+                <video class="main-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+                <div class="magnifier">
+                  <video class="zoomed-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
         <div class="details-vertical-line"></div>
+      </div>
+
+      <!-- ********************************* 12 New slide **************************************** -->
+
+      <div class="BDVModel page-section slide" id="BDVModel">
+        <div class="BDVModel-heading">3D BDV</div>
+        <div class="model3d">
+          <div class="model">
+            <model-viewer id="BDVExploded" src="./models/BDVexplode.gltf" camera-controls tone-mapping="neutral"
+              shadow-intensity="1" field-of-view="30deg" min-camera-orbit="auto 78deg auto"
+              max-camera-orbit="auto 78deg auto" camera-orbit="-609.1deg 87.55deg 1.617m" disable-pan disable-tap
+              interaction-prompt="none" loop>
+            </model-viewer>
+
+            <model-viewer id="BDVFunction" src="./models/BDVfunction.gltf" camera-controls tone-mapping="neutral"
+              shadow-intensity="1" field-of-view="30deg" min-camera-orbit="auto 78deg auto"
+              max-camera-orbit="auto 78deg auto" camera-orbit="-5.118deg 77.76deg 2.286m" max-field-of-view="22.11deg"
+              disable-pan disable-tap interaction-prompt="none" loop>
+            </model-viewer>
+
+          </div>
+
+          <div class="action-btns" style="margin-top: 20px;">
+            <button class="normalBtn active-explode" data-id="2" class="exploaded-btn active-explode">Normal</button>
+            <button class="explodedBtn" data-id="2" class="exploaded-btn">Exploded</button>
+            <button class="functionBtn" data-id="2" class="function-btn">Function</button>
+          </div>
+
+        </div>
+
       </div>
 
       <!-- ************** 13 slide ************** -->
@@ -854,12 +867,13 @@
 
           <div class="details-right-column">
             <div class="grandpa3">
-              <div class="video-container" id="videoContainer">
-                <video id="video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
-                <div class="magnifier" id="magnifier">
-                  <video id="zoomedVideo" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+              <div class="video-container">
+                <video class="main-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
+                <div class="magnifier">
+                  <video class="zoomed-video" src="./images/AIRLOCKDTDD.mp4" autoplay loop muted playsinline></video>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -979,7 +993,8 @@
 
           <div class="spec-header-row1">
             <div class="spec-box1 black-bg1" style="background-color: #1877F2  !important;" style=" overflow: hidden;">
-              <span class="spec-text">SDTD-C</span></div>
+              <span class="spec-text">SDTD-C</span>
+            </div>
             <div class="spec-box1 blue-bg1" style="background-color: #000000  !important;" style=" overflow: hidden;">
               <span class="spec-text">Single Drum Type Diverter</span>
             </div>
@@ -1174,10 +1189,10 @@
               <div class="bypass bypass-purple"></div>
               <div class="bypass bypass-orange"></div>
 
-              <div class="bypass-label bypass-01">01</div>
-              <div class="bypass-label bypass-02">02</div>
-              <div class="bypass-label bypass-03">03</div>
-              <div class="bypass-label bypass-04">04</div>
+              <div class="bypass-label bypass-01" data-id="1">01</div>
+              <div class="bypass-label bypass-02" data-id="2">02</div>
+              <div class="bypass-label bypass-03" data-id="3">03</div>
+              <div class="bypass-label bypass-04" data-id="4">04</div>
 
               <div class="by-center">
                 Applications
@@ -1188,6 +1203,36 @@
         </div>
         <div class="twentiethone-vertical-line"></div>
       </div>
+
+      <script>
+        const bypassLabels = document.querySelectorAll(".bypass-label");
+        const detailBoxes = document.querySelectorAll(".details-description24");
+        const colors = ["#A066A7", "#CD3391", "#FA8F17", "#F15C24"];
+        bypassLabels.forEach(label => {
+          label.addEventListener("click", () => {
+            const dataId = parseInt(label.getAttribute("data-id"));
+
+            detailBoxes.forEach((box, index) => {
+              const colorDiv = box.querySelector("div");
+
+              if (index === dataId - 1) {
+                box.style.backgroundColor = colors[index];
+                box.style.color = "white";
+                box.style.fontWeight = "bold";
+                colorDiv.style.backgroundColor = "white";
+                colorDiv.style.color = "black";
+              } else {
+                box.style.backgroundColor = "white";
+                box.style.color = "black";
+                box.style.fontWeight = "normal";
+                colorDiv.style.backgroundColor = colors[index];
+                colorDiv.style.color = "white";
+              }
+            });
+          });
+        });
+
+      </script>
 
       <!-- ********************************* BY PASS  Home **************************************** -->
 
@@ -1315,6 +1360,14 @@
       </div>
 
     </section>
+
+
+    <div class="preloaderBg" id="globalPreloader" onload="preloader()">
+      <div class="preloader"></div>
+      <div class="preloader2"></div>
+    </div>
+
+
     <script>
       const trailLength = 10;
       const trailSegments = [];
@@ -1384,12 +1437,12 @@
       setInterval(() => {
         colorSets.unshift(colorSets.pop());
         applyGradients(colorSets);
-      }, 2000);
+      }, 1500);
     </script>
 
 
   </div>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="./test1.js"></script>

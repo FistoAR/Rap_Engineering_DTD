@@ -25,9 +25,73 @@ body {
   transition: background-color 1s ease;
 }
 
-body.gray-bg {
-  background-color: #D6D6D6;
+.preloaderBg {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    perspective: 1000px;
+ 
 }
+ 
+.preloader {
+    margin: auto;
+    background: url(./images/rapengineeringlogo.png) no-repeat center;
+    background-size: 175px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: 75px;
+    animation: spin3D 1.5s linear infinite;
+  transform-style: preserve-3d;
+  /* backface-visibility: hidden; */
+}
+ 
+@keyframes spin3D {
+  0%   { transform: translate(-50%, -50%) rotateY(0deg); }
+  100% { transform: translate(-50%, -50%) rotateY(360deg); }
+}
+ 
+.preloader2 {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #d20807;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  animation: spin 1s ease-in-out infinite ;
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ 
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+/* 
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #999;
+  border-top-color: #075aa7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+ */
 
 .top-left-logo {
   position: absolute;
@@ -324,6 +388,7 @@ body.gray-bg {
 .details-slide,
 .details-slide-new,
 .details-slide-new9,
+.BDVModel,
 .third-slide,
 .fourth-slide,
 .fifth-slide,
@@ -2612,6 +2677,42 @@ body.gray-bg {
 }
 
 
+/* --------------------------- BDV Model SLIDE  ------------------------------- */
+
+.BDVModel {
+  width: 100vw;
+  height: 100vh;
+  padding: 10vh 5vw;
+  background-color: #D6D6D6;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.BDVModel.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.BDVModel-heading {
+  font-size: 16vw;
+  color: transparent;
+  -webkit-text-stroke: 2px #FFFFFF;
+  text-stroke: 2px #FFFFFF;
+  position: absolute;
+  z-index: -1;
+  font-family: "Open Sans";
+  font-weight: 800;
+}
+
+
+
 /* --------------------------- TEN SLIDE  ------------------------------- */
 .ten-slide {
   width: 100vw;
@@ -3353,7 +3454,7 @@ body.gray-bg {
   padding: 10px 15px;
   border-radius: 4px;
   border: 1px solid black;
-  background-color: #6b6b6b75;
+  background-color: #3030304d;
   color: black;
   min-width: 7%;
   font-weight: bold;
@@ -3368,35 +3469,8 @@ body.gray-bg {
   border: 1.5px solid white;
 }
 
-.model3d #hotspotTitle {
- color: rgb(255, 255, 255);
-}
-
-.model3d .label-content {
-  text-align: center;
-  width: 25%;
-  transition: all 0.5s ease;
-  background-color: rgb(0 0 0 / 57%);
-  padding: 10px 0;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.233);
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.37);
-  text-align: justify;
-  padding: 1%;
-  position: absolute;
-  right: 4%;
-  top: 12%;
-  font-size: 1vw;
-  color: rgb(255, 255, 255);
-}
-
-.label-content.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.ar-button slot {
-  display: none !important;
+.hidden {
+  display: none;
 }
 
 
@@ -4984,30 +5058,35 @@ body.gray-bg {
   background: transparent;
   border-radius: 30px;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .bypass-01 {
   top: 38%;
   transform: translate(-50%, -50%);
   right: -8%;
+  padding: 8% 11%;
 }
 
 .bypass-02 {
   top: 18%;
   right: 38%;
   transform: translate(50%, -50%);
+  padding: 8% 9%;
 }
 
 .bypass-03 {
   top: 27%;
   left: 22%;
   transform: translate(-50%, -50%);
+  padding: 19% 21%;
 }
 
 .bypass-04 {
   bottom: 21.5%;
   left: 23%;
   transform: translate(-50%, 50%);
+  padding: 22% 21%;
 }
 
 .by-header-row {
@@ -5554,8 +5633,8 @@ body.gray-bg {
 
 .trail-segment {
   position: fixed;
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   background: radial-gradient(circle, rgba(46, 253, 253, 0.5) 0%, rgb(2, 196, 255) 80%);
   pointer-events: none;
   border-radius: 50%;
@@ -5570,14 +5649,6 @@ body.gray-bg {
 .hide-custom-cursor .trail-segment {
   display: none !important;
 }
-
-
-
-
-
-
-
-
 
 
 .scroll-indicator {
