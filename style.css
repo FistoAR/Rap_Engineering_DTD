@@ -27,7 +27,7 @@ body {
 
 .preloaderBg {
     position: fixed;
-    z-index: 999;
+    z-index: 999999999999;
     top: 0;
     background: #fff;
     width: 100%;

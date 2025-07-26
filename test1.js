@@ -1293,12 +1293,14 @@ window.addEventListener("load", () => {
 
   Promise.race([Promise.all(modelPromises), timeoutFallback]).then(() => {
 
-  
-    DTDfunctionModel.classList.add("hidden");
+  setTimeout(() => {
+     DTDfunctionModel.classList.add("hidden");
     functionModel.classList.add("hidden");
 
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity    = "0";
     setTimeout(() => preloader.style.display = "none", 2000);
+    }, 2000);
+   
   });
 });
